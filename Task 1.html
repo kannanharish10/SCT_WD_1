@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AutoSphere - Drive the Future</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff;
+      line-height: 1.6;
+      background: url('https://images.unsplash.com/photo-1503736334956-4c8f8e92946d') no-repeat center center/cover;
+      min-height: 100vh;
+    }
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 15px 40px;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.4s ease;
+    }
+
+    header.scrolled {
+      background: rgba(0, 0, 0, 0.9);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #00d9ff;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #00d9ff;
+    }
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 80px;
+      text-align: center;
+      backdrop-filter: brightness(0.6);
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 15px;
+      color: #fff;
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      max-width: 600px;
+      margin: 0 auto;
+      color: #eee;
+    }
+    .section {
+      padding: 80px 20px;
+      background: rgba(0, 0, 0, 0.75);
+      text-align: center;
+    }
+
+    .section h2 {
+      font-size: 2.6rem;
+      margin-bottom: 40px;
+      color: #00d9ff;
+    }
+
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .feature-card {
+      background: #111;
+      padding: 25px;
+      border-radius: 12px;
+      width: 260px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    }
+
+    .feature-card h3 {
+      color: #00d9ff;
+      margin-bottom: 10px;
+    }
+
+    footer {
+      background: #000;
+      text-align: center;
+      padding: 25px;
+      font-size: 0.9rem;
+    }
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        background: rgba(0, 0, 0, 0.9);
+        position: absolute;
+        top: 70px;
+        right: 40px;
+        width: 200px;
+        display: none;
+        padding: 20px;
+        border-radius: 10px;
+      }
+
+      nav ul.show {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+        cursor: pointer;
+        font-size: 1.5rem;
+        color: #fff;
+      }
+    }
+
+    @media (min-width: 769px) {
+      .menu-toggle {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header id="navbar">
+    <div class="logo">AutoSphere</div>
+    <nav>
+      <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+      <ul id="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#features">Models</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <div>
+      <h1>Drive into the Future</h1>
+      <p>Discover high-performance, stylish and eco-friendly vehicles tailored for your journey. Experience the road like never before.</p>
+    </div>
+  </section>
+
+  <section class="section" id="features">
+    <h2>Our Models</h2>
+    <div class="features">
+      <div class="feature-card">
+        <h3>Electra X</h3>
+        <p>Fully electric with up to 600km range and AI driving support.</p>
+      </div>
+      <div class="feature-card">
+        <h3>RoadBlazer</h3>
+        <p>Built for speed and power, with 0-100km/h in just 3.5s.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Urban Evo</h3>
+        <p>Compact, efficient, and smart — ideal for city driving.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <h2>About AutoSphere</h2>
+    <p>AutoSphere is dedicated to designing the future of mobility through sustainable innovation, cutting-edge technology, and unmatched performance. We're redefining what it means to drive.</p>
+  </section>
+
+  <section class="section" id="contact">
+    <h2>Contact Us</h2>
+    <p>Have questions? Reach out to us at <strong>support@autosphere.com</strong> or follow us on our socials.</p>
+  </section>
+
+  <footer>
+    &copy; 2025 AutoSphere. All rights reserved.
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+
+    window.addEventListener('scroll', () => {
+      const navbar = document.getElementById('navbar');
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+    });
+  </script>
+</body>
+</html>
